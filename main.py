@@ -38,13 +38,22 @@ class snake(object):
 
 
 def drawGrid(w, rows, surface):
-    pass
+    sizeBtwn = w // rows
+
+    x = 0
+    y = 0
+    for i in range(rows):
+        x = x + sizeBtwn
+        y = y + sizeBtwn
+
+        pygame.draw.line(surface, (255, 255, 255), (x, 0), (x, w))
+        pygame.draw.line(surface, (255, 255, 255), (0, y), (w, y))
 
 
 def redrawWindow(surface):
     global rows, width
-    win.fill((0, 0, 0))
-    drawGrid(surface)
+    surface.fill((0, 0, 0))
+    drawGrid(width, rows, surface)
     pygame.display.update()
 
 
