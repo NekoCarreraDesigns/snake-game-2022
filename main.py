@@ -98,7 +98,20 @@ class snake(object):
         pass
 
     def addCube(self):
-        pass
+        tail = self.body[-1]
+        dx, dy = tail.dirnx, tail.dirny
+
+        if dx == 1 and dy == 0:
+            self.body.append(cube((tail.pos[0]-1, tail.pos[1])))
+        elif dx == -1 and dy == 0:
+            self.body.append(cube((tail.pos[0]+1, tail.pos[1])))
+        elif dx == 0 and dy == 1:
+            self.body.append(cube((tail.pos[0], tail.pos[1]-1)))
+        elif dx == 0 and dy == 1:
+            self.body.append(cube((tail.pos[0], tail.pos[1]+1)))
+
+        self.body[-1].dirnx = dx
+        self.body[-1].dirny = dy
 
     def draw(self, surface):
         for i, c in enumerate(self.body):
@@ -122,15 +135,15 @@ def drawGrid(w, rows, surface):
 
 
 def redrawWindow(surface):
-    global rows, width
+    global rows, width, s, snack
     surface.fill((0, 0, 0))
     s.draw(surface)
+    snack.draw(surface)
     drawGrid(width, rows, surface)
     pygame.display.update()
 
 
-def randomSnack(item):
-    global rows
+def randomSnack(rows, item):
     positions = item.body
 
     while True:
@@ -149,7 +162,7 @@ def message_box(subject, content):
 
 
 def main():
-    global width, rows, s
+    global width, rows, s, snack
     width = 500
     rows = 20
     win = pygame.display.set_mode((width, width))
