@@ -1,14 +1,15 @@
 from ast import Pass
 import math
 import random
+from turtle import circle
 import pygame
 import tkinter as tk
 from tkinter import messagebox
 
 
 class cube(object):
-    rows = 0
-    w = 0
+    rows = 20
+    w = 500
 
     def __init__(self, start, dirnx=1, dirny=0, color=(235, 152, 23)):
         self.pos = start
@@ -22,7 +23,18 @@ class cube(object):
         self.pos(self.pos[0] + self.dirnx, self.pos[1] + self.dirny)
 
     def draw(self, surface, eyes=False):
-        pass
+        dis = self.w // self.rows
+        i = self.pos[0]
+        j = self.pos[1]
+
+        pygame.draw.rect(surface, self.color, (i*dis+1, j*dis+1, dis-2, dis-2))
+        if eyes:
+            center = dis//2
+            radius = 3
+            circleMiddle = (i*dis+center-radius, j*dis+8)
+            circleMiddle2 = (i*dis + dis - radius*2, j*dis+8)
+            pygame.draw.circle(surface, (0, 0, 0), circleMiddle, radius)
+            pygame.draw.circle(surface, (0, 0, 0), circleMiddle2, radius)
 
 
 class snake(object):
