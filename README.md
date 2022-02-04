@@ -1,5 +1,3 @@
-# snake-game-2022
-
 # Title: Snake Game
 
 ![last commit](https://img.shields.io/github/last-commit/NekoCarreraDesigns/snake-game-2022?style=flat-square)![license badge](https://img.shields.io/github/license/NekoCarreraDesigns/snake-game-2022?style=flat-square)
@@ -20,7 +18,7 @@ Classic snake game written using python, uses pygame module, and object oriented
 
 ## Installation
 
-` fork repo, download python if you haven't already, install pygame module, from the command line type py main.py or if using vscode hit the play symbol in the top right to run the file, have fun! `
+`fork repo, download python if you haven't already, install pygame module, from the command line type py main.py or if using vscode hit the play symbol in the top right to run the file, have fun!`
 
 ## Usage
 
@@ -28,7 +26,7 @@ For those that crave some retro gaming boredom relief
 
 ## Future Developments
 
-undefined
+Maybe change the color of the snake, make it faster
 
 ## Credits
 
