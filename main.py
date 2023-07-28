@@ -182,6 +182,8 @@ def main():
     snack = cube(randomSnack(rows, s), color=(0, 255, 0))
     flag = True
 
+    pygame.display.set_caption("Snake")
+
     clock = pygame.time.Clock()
 
     while flag:
